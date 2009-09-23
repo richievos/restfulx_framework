@@ -30,9 +30,14 @@ package restfulx.test.models {
     public static const LABEL:String = "name";
     
     public var name:String;
-    
+
+    private var _param:String;
+
     public function Article() {
       super(LABEL);
     }
+
+    public override function get toParam():String { return _param }
+    public override function set toParam(param:String):String { _param = param }
   }
 }

@@ -57,10 +57,10 @@ package restfulx.test.cases {
       Rx.httpRootUrl = "/";
 
       var article:Article = new Article;
-      article.id = "1";
+      article.toParam = "1";
       
       var section:Section = new Section;
-      section.id = "2";
+      section.toParam = "2";
       
       var articleUrl:String = Rx.httpRootUrl + RxUtils.nestResource(article);
       assertEquals("/admin/articles.fxml", articleUrl);
@@ -70,7 +70,7 @@ package restfulx.test.cases {
       assertEquals("/admin/sections/2/articles/1.fxml", articleUrlNestedBySection);
       
       var simpleProperty:SimpleProperty = new SimpleProperty;
-      simpleProperty.id = "3";
+      simpleProperty.toParam = "3";
       
       var simplePropertyUrl:String = Rx.httpRootUrl +
         RxUtils.nestResource(simpleProperty);

@@ -509,7 +509,7 @@ package org.restfulx.utils {
      * @param model RxModel instance to check
      */
     public static function canDeleteModel(model:RxModel):Boolean {
-      return model != null && !isEmpty(model.id);
+      return model != null && !isEmpty(model.toParam);
     }
 
     /**
