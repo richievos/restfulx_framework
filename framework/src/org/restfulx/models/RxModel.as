@@ -62,6 +62,10 @@ package org.restfulx.models {
       _label = label;
     }
 
+	public function get toParam():String {
+		return id;
+	}
+
     /**
      * Wrapper around Rx.models.show
      *  

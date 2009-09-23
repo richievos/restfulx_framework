@@ -315,7 +315,7 @@ package org.restfulx.utils {
       
       for each (var resource:Object in nestedBy) {
         result += Rx.models.state.controllers[getQualifiedClassName(resource)] + 
-          "/" + resource["id"] + "/";
+          "/" + resource["toParam"] + "/";
       }
       
       return RxUtils.getResourcePathPrefix(object) + result +
