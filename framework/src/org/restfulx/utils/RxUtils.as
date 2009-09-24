@@ -267,7 +267,17 @@ package org.restfulx.utils {
     public static function getResourceName(object:Object):String {
       return describeResource(object).arg.(@key == "name").@value;
     }
-    
+
+    /**
+     * Check if the given object is a singleton resource
+     *  
+     * @param object restfulx model
+     * @result boolean value of [Resource(singleton="true|false")]
+     */
+    public static function isSingletonResource(object:Object):Boolean {
+      return describeResource(object).arg.(@key == "singleton").@value;
+    }
+
     /**
      * Get Rx Model resource pathPrefix annotation
      *  
@@ -334,7 +344,11 @@ package org.restfulx.utils {
     public static function addObjectIdToResourceURL(url:String, object:Object, suffix:String = "fxml"):String {
       return url.replace("." + suffix, "") + "/" + object["id"] + "." + suffix;
     }
-        
+
+	public static function addSingletonPathToResourceURL(url:String, object:Object, suffix:String = "fxml"):String {
+      return url.replace("." + suffix, "") + "/" + object["id"] + "." + suffix;
+    }
+
     /**
      * Get specific annotation from XML node.
      */

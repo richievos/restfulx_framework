@@ -159,7 +159,10 @@ package org.restfulx.services.http {
     public function show(object:Object, responder:IResponder, metadata:Object = null, nestedBy:Array = null):void {
       var httpService:HTTPService = getHTTPService(object, nestedBy);
       httpService.method = URLRequestMethod.GET;
-      httpService.url = RxUtils.addObjectIdToResourceURL(httpService.url, object, urlSuffix);
+      
+      if (!RxUtils.isSingletonResource(object)) {
+	    httpService.url = RxUtils.addObjectIdToResourceURL(httpService.url, object, urlSuffix);
+      }
         
       var urlParams:String = urlEncodeMetadata(metadata);
       if (urlParams != "") {
